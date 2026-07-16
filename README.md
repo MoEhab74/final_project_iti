@@ -58,18 +58,6 @@ It follows modern Flutter development best practices including:
 
 ---
 
-# ✨ Application Preview
-
-<p align="center">
-  <img src="assets/readme/banner.png" alt="Classy Showcase" width="100%">
-</p>
-
-<p align="center">
-  <em>A premium showcase highlighting the main features and user experience of the Classy application.</em>
-</p>
-
----
-
 # 🏗 Architecture
 
 ```
