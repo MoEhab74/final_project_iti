@@ -58,52 +58,14 @@ It follows modern Flutter development best practices including:
 
 ---
 
-# 📱 App Preview
-
-## Home
+# ✨ Application Preview
 
 <p align="center">
-<img src="assets/readme/home.png" width="260"/>
+  <img src="assets/readme/banner.png" alt="Classy Showcase" width="100%">
 </p>
 
----
-
-## Search
-
 <p align="center">
-<img src="assets/readme/search.png" width="260"/>
-</p>
-
----
-
-## Product Details
-
-<p align="center">
-<img src="assets/readme/details.png" width="260"/>
-</p>
-
----
-
-## Shopping Cart
-
-<p align="center">
-<img src="assets/readme/cart.png" width="260"/>
-</p>
-
----
-
-## Profile
-
-<p align="center">
-<img src="assets/readme/profile.png" width="260"/>
-</p>
-
----
-
-## Authentication
-
-<p align="center">
-<img src="assets/readme/auth.png" width="260"/>
+  <em>A premium showcase highlighting the main features and user experience of the Classy application.</em>
 </p>
 
 ---
