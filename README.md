@@ -58,6 +58,14 @@ It follows modern Flutter development best practices including:
 
 ---
 
+# ✨ Showcase
+
+<p align="center">
+  <img src="assets/readme/banner.png" width="100%">
+</p>
+
+---
+
 # 🏗 Architecture
 
 ```
