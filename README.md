@@ -141,7 +141,7 @@ lib
 Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/Classy.git
+git clone https://github.com/yourusername/final_project_iti.git
 ```
 
 Go to the project
