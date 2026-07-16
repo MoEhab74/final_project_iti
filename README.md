@@ -219,12 +219,8 @@ flutter run
 - ❤️ Wishlist
 - 💳 Payment Gateway
 - ⭐ Product Reviews
-- 🎟 Coupon System
-- 📦 Order Tracking
-- 🔔 Push Notifications
 - 🌙 Dark Mode
 - 🌍 Localization
-- 📊 Admin Dashboard
 
 ---
 
