@@ -1,6 +1,6 @@
-<div align="center">
+<!-- <div align="center">
 
-<img src="assets/readme/banner.png" alt="Classy Banner" width="100%"/>
+<img src="assets/readme/banner.png" alt="Classy Banner" width="100%"/> -->
 
 # 🛍️ Classy
 
