@@ -86,7 +86,7 @@ class HomeScreenBody extends StatelessWidget {
             /// Featured
             const SeeAllWidget(title: "Featured", titleTextButton: "See All"),
 
-            const ShopBuilder(),
+            const ShopBuilder(heroTagPrefix: 'featured_'),
 
             SizedBox(height: 12.h),
 
@@ -96,7 +96,7 @@ class HomeScreenBody extends StatelessWidget {
               titleTextButton: "See All",
             ),
 
-            const ShopBuilder(),
+            const ShopBuilder(heroTagPrefix: 'popular_'),
 
             SizedBox(height: 20.h),
           ],

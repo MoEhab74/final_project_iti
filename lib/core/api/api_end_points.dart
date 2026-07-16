@@ -6,4 +6,5 @@ class ApiEndPoints {
   static const String getAllCategories = "$baseUrl/categories";
   static const String getCart = "https://dummyjson.com/carts/user/1";
   static const String getAddresses = "$baseUrl/locations";
+  static const String search = "https://dummyjson.com/products/search";
 }

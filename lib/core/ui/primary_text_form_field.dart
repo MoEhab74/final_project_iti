@@ -15,6 +15,9 @@ class AppTextFormField extends StatefulWidget {
     this.keyboardType,
     this.validator,
     this.controller,
+    this.onSaved,
+    this.onChanged,
+    this.onFieldSubmitted,
   });
 
   final String? hintText;
@@ -26,6 +29,9 @@ class AppTextFormField extends StatefulWidget {
   final TextInputType? keyboardType;
   final String? Function(String?)? validator;
   final TextEditingController? controller;
+  final Function(String?)? onSaved;
+  final ValueChanged<String>? onChanged;
+  final ValueChanged<String>? onFieldSubmitted;
 
   @override
   State<AppTextFormField> createState() => _AppTextFormFieldState();
@@ -46,6 +52,9 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
       width: widget.width ?? 331.w,
       height: widget.height ?? 56.h,
       child: TextFormField(
+        onSaved: widget.onSaved,
+        onChanged: widget.onChanged,
+        onFieldSubmitted: widget.onFieldSubmitted,
         controller: widget.controller,
         validator: widget.validator,
         keyboardType: widget.keyboardType,

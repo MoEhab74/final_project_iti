@@ -8,5 +8,5 @@ class AppRoutes {
   static const String cartScreen = '/cartScreen';
   static const String profileScreen = '/profileScreen';
   static const String addressScreenBody = '/addressScreenBody';
-
+  static const String productsScreen = '/productsScreen';
 }

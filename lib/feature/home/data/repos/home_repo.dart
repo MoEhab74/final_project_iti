@@ -19,4 +19,18 @@ class HomeRepo {
       return Left(msg);
     }
   }
+
+  Future<Either<String, List<ProductModel>>> searchProducts(String name) async {
+    List<ProductModel> products;
+    final response = await _dioHelper.getRequest("${ApiEndPoints.search}?q=$name");
+    if (response.isSuccess) {
+      products = productModelFromJson(response.data['products']);
+      return Right(products);
+    } else {
+      final String msg =
+          response.errorMessage ??
+          'Request failed (status: ${response.statusCode ?? 'unknown'})';
+      return Left(msg);
+    }
+  }
 }

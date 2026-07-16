@@ -1,4 +1,3 @@
-import 'package:final_project/core/themes/app_styles.dart';
 import 'package:final_project/core/ui/hight_or_width_space.dart';
 import 'package:final_project/feature/auth/sign_up/presentation/widgets/sign_up_form.dart';
 import 'package:flutter/material.dart';

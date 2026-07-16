@@ -1,5 +1,7 @@
+import 'package:final_project/core/routing/app_routes.dart';
 import 'package:final_project/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SeeAllWidget extends StatelessWidget {
   const SeeAllWidget({
@@ -24,7 +26,9 @@ class SeeAllWidget extends StatelessWidget {
         ),
         Spacer(),
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            context.push(AppRoutes.productsScreen);
+          },
           child: Text(
             titleTextButton,
             style: TextStyle(

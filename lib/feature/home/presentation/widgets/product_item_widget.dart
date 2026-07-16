@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:final_project/core/ui/loading_lottie.dart';
 import 'package:final_project/feature/home/data/models/product_model.dart';
+import 'package:final_project/feature/home/presentation/views/products_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -9,15 +10,28 @@ class ProductItem extends StatelessWidget {
     super.key,
     this.onTap,
     required this.product,
+    this.heroTagPrefix = '',
   });
 
   final VoidCallback? onTap;
   final ProductModel product;
+  final String heroTagPrefix;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap ?? () {},
+      onTap:
+          onTap ??
+          () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ProductDetailScreen(
+                  product: product,
+                ),
+              ),
+            );
+          },
       child: SizedBox(
         width: 155.w,
         child: Card(
@@ -35,8 +49,9 @@ class ProductItem extends StatelessWidget {
                   children: [
                     Positioned.fill(
                       child: Hero(
-                        tag: product.id ?? "12345",
-                        child: product.images?.isNotEmpty == true &&
+                        tag: '$heroTagPrefix${product.id ?? "12345"}',
+                        child:
+                            product.images?.isNotEmpty == true &&
                                 product.images!.first.isNotEmpty
                             ? CachedNetworkImage(
                                 imageUrl: product.images!.first,
@@ -54,18 +69,7 @@ class ProductItem extends StatelessWidget {
                     Positioned(
                       top: 8,
                       right: 8,
-                      child: IconButton(
-                        padding: EdgeInsets.zero,
-                        iconSize: 18,
-                        onPressed: () {
-                          // Favorite Action
-                        },
-                        icon: const Icon(
-                          Icons.favorite_border_outlined,
-                          color: Colors.white,
-                          size: 30,
-                        ),
-                      ),
+                      child: HeartWidget(),
                     ),
                   ],
                 ),
@@ -99,6 +103,37 @@ class ProductItem extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class HeartWidget extends StatefulWidget {
+  const HeartWidget({
+    super.key,
+  });
+
+  @override
+  State<HeartWidget> createState() => _HeartWidgetState();
+}
+
+class _HeartWidgetState extends State<HeartWidget> {
+  bool isFavorite = false;
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      padding: EdgeInsets.zero,
+      iconSize: 18,
+      onPressed: () {
+        // Favorite Action
+        setState(() {
+          isFavorite = !isFavorite;
+        });
+      },
+      icon: Icon(
+        isFavorite ? Icons.favorite : Icons.favorite_border_outlined,
+        color: isFavorite ? Colors.red : Colors.white,
+        size: 30,
       ),
     );
   }

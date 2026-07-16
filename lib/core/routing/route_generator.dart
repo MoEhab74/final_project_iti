@@ -2,8 +2,13 @@ import 'package:final_project/core/utils/service_locator.dart';
 import 'package:final_project/feature/auth/cubit/auth_cubit.dart';
 import 'package:final_project/feature/auth/login/presentation/views/login_screen.dart';
 import 'package:final_project/feature/auth/sign_up/presentation/views/sign_up_screen.dart';
-import 'package:final_project/feature/home/presentation/cubit/products_cubit.dart';
+import 'package:final_project/feature/cart/presentation/cubit/cart_cubit.dart';
+import 'package:final_project/feature/cart/presentation/views/cart_screen.dart';
+import 'package:final_project/feature/home/presentation/cubit/address/address_cubit.dart';
+import 'package:final_project/feature/home/presentation/cubit/products/products_cubit.dart';
+import 'package:final_project/feature/home/presentation/views/address_screen.dart';
 import 'package:final_project/feature/home/presentation/views/home_screen.dart';
+import 'package:final_project/feature/home/presentation/views/products_screen.dart';
 import 'package:final_project/feature/splash/splash.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -27,8 +32,11 @@ class RouteGenerator {
         builder: (context, state) => MultiBlocProvider(
           providers: [
             BlocProvider<AuthCubit>(create: (_) => locator<AuthCubit>()),
-            BlocProvider<ProductSCubit>(
-              create: (_) => locator<ProductSCubit>(),
+            BlocProvider<ProductsCubit>(
+              create: (_) => locator<ProductsCubit>(),
+            ),
+            BlocProvider<CartCubit>(
+              create: (_) => locator<CartCubit>()..getUserCart(),
             ),
           ],
           child: const HomeScreen(),
@@ -52,6 +60,30 @@ class RouteGenerator {
       //     child: const AddressScreenBody(),
       //   ),
       // ),
+      GoRoute(
+        path: AppRoutes.productsScreen,
+        name: AppRoutes.productsScreen,
+        builder: (context, state) => BlocProvider(
+          create: (_) => locator<ProductsCubit>(),
+          child: const ProductsScreen(),
+        ),
+      ),
+      GoRoute(
+        path: AppRoutes.addressScreenBody,
+        name: AppRoutes.addressScreenBody,
+        builder: (context, state) => BlocProvider(
+          create: (_) => locator<AddressCubit>()..getAllAddresses(),
+          child: const AddressScreenBody(),
+        ),
+      ),
+      GoRoute(
+        path: AppRoutes.cartScreen,
+        name: AppRoutes.cartScreen,
+        builder: (context, state) => BlocProvider(
+          create: (_) => locator<CartCubit>()..getUserCart(),
+          child: const CartScreen(),
+        ),
+      ),
     ],
   );
 }
